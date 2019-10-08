@@ -28,7 +28,7 @@ app.get('/actors', actors.getAll);
 app.post('/actors', actors.createOne)
 app.get('/actors/:id', actors.getOne);
 app.put('/actors/:id', actors.updateOne);
-// app.post('/actors/:id/movies', actors.addMovie);
+app.post('/actors/movies/:id', actors.addMovie);
 app.delete('/actors/:id', actors.deleteOne);
 // app.delete('/actors/:id/allMovies', actors.delActorAndMovies); //delete an actor and all movies of this actor
 // app.get('/actors/:actorid/:movieid', actors.removeMovie);//remove movie from the list of movies of an actor

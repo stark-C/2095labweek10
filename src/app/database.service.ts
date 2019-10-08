@@ -30,9 +30,15 @@ export class DatabaseService {
     return this.http.delete(url, httpOptions);
   }
 
-  addActor(id, data){
+  addActor(id, data_actor){
     let url = "/movies/actors/" + id;
-    return this.http.post(url, data, httpOptions);
+      return this.http.post(url, data_actor, httpOptions);
+  }
+
+  addMovie(id, data_movie){
+    let url = "/actors/movies/"+ id;
+
+    return this.http.post(url, data_movie, httpOptions);
   }
 
   getMovies(){
@@ -52,4 +58,6 @@ export class DatabaseService {
     let url = "/movies/del/"+year;
     return this.http.delete(url, httpOptions);
   }
+
+
 }

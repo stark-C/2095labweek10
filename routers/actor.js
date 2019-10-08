@@ -86,7 +86,7 @@ module.exports = {
             if (err) return res.status(400).json(err);
             if (!actor) return res.status(404).json();
 
-            Movie.findOne({ _id: req.body.id }, function (err, movie) {
+            Movie.findOne({ _id: req.body._id }, function (err, movie) {
                 if (err) return res.status(400).json(err);
                 if (!movie) return res.status(404).json();
 

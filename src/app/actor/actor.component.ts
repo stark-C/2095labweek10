@@ -82,9 +82,14 @@ export class ActorComponent implements OnInit {
     this.movieName = item.title;
     this.year = item.year;
     this.movieId = item._id
-    let obj = { _id: this.actorId, name: this.fullName, bYear: this.bYear };
-    this.dbService.addActor(this.movieId, obj).subscribe(result => {
-      this.onGetMovies();
+    let obj_movie = {_id: this.movieId, title: this.movieName, year: this.year}
+    let obj_actor = { _id: this.actorId, name: this.fullName, bYear: this.bYear };
+    this.dbService.addActor(this.movieId, obj_actor).subscribe(result => {
+      this.dbService.addMovie(this.actorId, obj_movie).subscribe(result=>{
+        this.onGetMovies();
+        this.onGetActors();
+      })
+      
     });
     
   }
